@@ -10,14 +10,12 @@ q = ""
 def loadPage():
 	return render_template('index.html', query="")
 
-
 @app.route("/", methods=['POST'])
 def cosineSimilarity():
 	
-	universalSetOfUniqueWords = []
+	UniqueWordSet = []
 	matchPercentage = 0
 
-	####################################################################################################
 	
 	inputQuery = request.form['query']
 	lowercaseQuery = inputQuery.lower()
@@ -26,10 +24,9 @@ def cosineSimilarity():
 	# queryWordList = map(str, queryWordList)	 re.sub(pattern,repl,string)				#This was causing divide by zero error
 
 	for word in queryWordList:
-		if word not in universalSetOfUniqueWords:
-			universalSetOfUniqueWords.append(word)
+		if word not in UniqueWordSet:
+			UniqueWordSet.append(word)
 
-	####################################################################################################
 
 	fd = open("database1.txt", "r")
 	database1 = fd.read().lower()
@@ -38,15 +35,14 @@ def cosineSimilarity():
 	# databaseWordList = map(str, databaseWordList)			#And this also leads to divide by zero error
 
 	for word in databaseWordList:
-		if word not in universalSetOfUniqueWords:
-			universalSetOfUniqueWords.append(word)
+		if word not in UniqueWordSet:
+			UniqueWordSet.append(word)
 
-	####################################################################################################
 
 	queryTF = []
 	databaseTF = []
 
-	for word in universalSetOfUniqueWords:
+	for word in UniqueWordSet:
 		queryTfCounter = 0
 		databaseTfCounter = 0
 
