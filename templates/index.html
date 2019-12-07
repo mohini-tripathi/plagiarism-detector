@@ -1,0 +1,20 @@
+<home>
+    <body>
+       <title>Plagiarism Checker</title>
+       <form action="http://localhost:5000" method="POST">
+          <p>Input Text : </p>
+          <p><textarea name="query" rows="10" cols="80" autofocus>{{query}}</textarea></p>
+          <br>
+          <tr>
+             <td>Select File to Load</td>
+             <td><input type="file" id="fileToLoad"></td>
+             <td><button onclick="loadFileAsText()">Load Selected File</button></td>
+          </tr>
+          <br>
+          <br>
+          <br>
+          <button style="background-color: green; color:white; height: 10mm; width: 50mm;" type="submit" name="submit" value="CHECK PLAGIARISM">CHECK PLAGIARISM</button>
+          <p><h3>{{result}}</h3></p>
+       </form>
+    </body>
+ </home>
