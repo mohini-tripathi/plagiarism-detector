@@ -1,2 +1,3 @@
 
-Plagiarism Detection
+Plagiarism Detector
+
