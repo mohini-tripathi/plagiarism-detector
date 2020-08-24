@@ -1,4 +1,4 @@
 
-Plagiarism Detector for research papers.
+Plagiarism Detector 
 
 
